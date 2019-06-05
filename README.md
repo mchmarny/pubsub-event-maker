@@ -7,7 +7,7 @@ Simple utility to stream mocked events into Google Cloud PubSub. Good for demo a
 To start the `eventmaker` and have it mock Cloud PubSub events run the following command on the [released version](https://github.com/mchmarny/pubsub-event-maker/releases) of this binary
 
 ```shell
-./eventmaker --project YOUR_PROJECT_ID --topic TARGET_TOPIC_NAME
+./eventmaker
 ```
 
 > The above command uses few defaults, you may want to consider the [Additional Configuration](#additional-configuration) section below
@@ -41,15 +41,15 @@ There is a pretty generous free tier (first 10GB) on PubSub which is priced base
 
 ## Additional Configuration
 
-The `eventmaker` also supports the following runtime configuration parameters:
+The `eventmaker` also supports the following optional runtime configuration parameters:
 
-* **project** - (string) GCP Project ID
-* **topic** (string) Name of the PubSub topic (will be created if does not exist)
-* **freq** (optional, string) Frequency in which the mocked events will be posted to PubSub topic [default "5s"]
-* **sources** (optional, int) Number of event sources to mock [default 1]
-* **metric** (optional, string) Name of the metric label for each event [default "utilization"]
-* **range** (optional, string) Range of the random metric value [default "0-100"]
-* **maxErrors** (optional, int) Maximum number of PubSub push errors [default 10]
+* **project** - GCP Project ID (uses either GCP_PROJECT env var or metadata service on GCP)
+* **topic** Name of the PubSub topic (will be created if does not exist) [default "eventmaker"]
+* **freq** Frequency in which the mocked events will be posted to PubSub topic [default "5s"]
+* **sources** Number of event sources to mock [default 1]
+* **metric** Name of the metric label for each event [default "utilization"]
+* **range** Range of the random metric value [default "0-100"]
+* **maxErrors** Maximum number of PubSub push errors [default 10]
 
 
 ## Disclaimer

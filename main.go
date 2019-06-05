@@ -16,8 +16,8 @@ import (
 var (
 	logger = log.New(os.Stdout, "[EVENT-MAKER] ", 0)
 
-	projectID      = flag.String("project", "", "GCP Project ID")
-	topicName      = flag.String("topic", "", "Name of the GCP PubSub topic")
+	projectID      = flag.String("project", os.Getenv("GCP_PROJECT"), "GCP Project ID")
+	topicName      = flag.String("topic", "eventmaker", "Name of the GCP PubSub topic [eventmaker]")
 	numOfSources   = flag.Int("sources", 1, "Number of event sources [1-n]")
 	metricLabel    = flag.String("metric", "utilization", "Name of the metric label")
 	metricRange    = flag.String("range", "0-100", "Numeric metric range [0-100]")
@@ -30,6 +30,10 @@ var (
 func main() {
 
 	flag.Parse()
+
+	if *projectID == "" {
+		projectID = getProjectID()
+	}
 
 	min, max := mustParseRange(*metricRange)
 	freq, err := time.ParseDuration(*eventFreq)
