@@ -1,6 +1,6 @@
 # pubsub-event-maker
 
-Simple utility to stream mocked events into Google Cloud PubSub. Good for demo and sample apps.
+Simple utility to stream synthetic events into Google Cloud PubSub. Good for demo and sample apps.
 
 ## Run Locally
 
