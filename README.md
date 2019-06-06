@@ -74,7 +74,7 @@ This will deploy the image into a VM on GCE. To complete the install you will ha
 gcloud compute scp ${GOOGLE_APPLICATION_CREDENTIALS} eventmaker:/tmp/sa.pem
 ```
 
-Chance are your default GCP credentials are a lot more powerful than the `eventmaker` needs. To follow the least privilege principle, you can create a brand new service account that has only the right required for PubSub (`projects.topics.create` and `projects.topics.publish`)
+> Chance are your default GCP credentials are a lot more powerful than the `eventmaker` needs. To follow the least privilege principle, you can create a brand new service account that has only the right required for PubSub (`projects.topics.create` and `projects.topics.publish`)
 
 If you want to monitor the logs output from container you will need to capture the instance ID first
 
