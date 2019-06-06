@@ -85,9 +85,9 @@ INSTANCE_ID=$(gcloud compute instances describe eventmaker --zone us-central1-c 
 Then you can output the logs using this command
 
 ```shell
-gcloud logging read "resource.type=gce_instance AND \
-    logName=projects/cloudylabs/logs/cos_containers AND \
-    resource.labels.instance_id=${INSTANCE_ID}"
+gcloud logging read "resource.type=gce_instance \
+    AND logName=projects/cloudylabs/logs/cos_containers \
+    AND resource.labels.instance_id=${INSTANCE_ID}"
 ```
 
 ## Cost
