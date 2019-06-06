@@ -20,7 +20,13 @@ The `eventmaker` also supports the following optional runtime configuration para
 * **range** Range of the random metric value [default "0-100"]
 * **maxErrors** Maximum number of PubSub push errors [default 10]
 
-The output from the above command will look something like that
+So, for example to mock session data tracking user clicks from 10 devices you command would look somehting like this:
+
+```shell
+./eventmaker --topic=sessions --sources=10 --metric=clicks --freq=1s
+```
+
+Whichever way you configure your `eventmaker` command, The output will look something like this:
 
 ```shell
 [EVENT-MAKER] Publishing: {"source_id":"device-0","event_id":"eid-b6569857-232c-4e6f-bd51-cda4e81f3e1f","event_ts":"2019-06-05T11:39:50.403778Z","label":"utilization","mem_used":34.47265625,"cpu_used":6.5,"load_1":1.55,"load_5":2.25,"load_15":2.49,"random_metric":94.05090880450125}
