@@ -71,7 +71,7 @@ gcloud compute instances create-with-container eventmaker \
 This will deploy the image into a VM on GCE. To complete the install you will have to also uppload a GCP service account file so the container can start.
 
 ```shell
-gcloud compute scp ${GOOGLE_APPLICATION_CREDENTIALS} eventmaker:/tmp/sa.pem
+gcloud compute scp ${GOOGLE_APPLICATION_CREDENTIALS} eventmaker:/tmp/sa.pem --zone us-central1-c
 ```
 
 > Chance are your default GCP credentials are a lot more powerful than the `eventmaker` needs. To follow the least privilege principle, you can create a brand new service account that has only the right required for PubSub (`projects.topics.create` and `projects.topics.publish`)
